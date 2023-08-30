@@ -8,4 +8,4 @@ import view
 
 v = view.vista()
 v.inicio_programa()
-v.menu_manejo_turnos()
+v.menu_principal()
