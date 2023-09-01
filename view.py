@@ -16,9 +16,9 @@ class vista:
 
         user = input("Usuario: ")
 
-        password = getpass.getpass("Contraseña: ")
+        #password = getpass.getpass("Contraseña: ")
 
-        print(c.inicio_programa(user, password))
+        c.inicio_programa(user,"password")
 
     def menu_principal(self):
         print("============== Menú Principal ==============")
