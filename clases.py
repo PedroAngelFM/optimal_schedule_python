@@ -39,6 +39,11 @@ class Worker:
     def __str__(self):
         return """El trabajador tiene un ID"""
 
+    def generate_worker_as_dictionary(self):
+        worker_as_dictionary = {'ID': self.ID, 'contract': self.contract,
+                                'days_warking_in_a_row': self.days_working_in_a_row,
+                                'hours_worked': self.hours_worked, 'yearly_hours': self.yearly_hours}
+        return dict
 
 class Tipo_turno:
     def __init__(self, name, hours, night, weekend):
