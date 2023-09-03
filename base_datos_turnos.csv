@@ -1,0 +1,7 @@
+﻿nombre;horas;noche;fin de semana;trabajadores
+mañana ;8;False;False;4
+tarde;8;False;False;4
+noche;8;True;False;3
+mañana fin de semana;8;False;True;4
+mañana tarde;8;False;True;4
+noche;8;True;True;3

@@ -9,6 +9,7 @@ import random as rd
 import numpy as np
 import clases as c
 import pandas as pd
+import datetime as dt
 
 # %%
 contract_types = np.arange(0, 1, 0.25)
@@ -40,7 +41,7 @@ def generate_random_worker_complete():
 
   findes_trabajados = rd.randint(0, 5)
 
-  hours_worked = rd.randint(0, int(contract_type*1200))
+  hours_worked = rd.randint(0, int(contract_type * 1200))
 
   return c.Worker(identification, contract_type, findes_trabajados, dias_trabajados, hours_worked)
 
@@ -88,3 +89,28 @@ for i in range(100):
   add_worker_to_dataframe(data_frame_a_exportar)
 
 print(data_frame_a_exportar.head(len(data_frame_a_exportar)))
+
+data_frame_a_exportar.to_csv("base_datos.csv", index=False)
+
+#prueba
+data_frame_a_exportar = pd.read_csv("base_datos.csv")
+
+print(data_frame_a_exportar.head(len(data_frame_a_exportar)))
+
+actual_date = dt.datetime.now()
+
+current_year = actual_date.year
+
+initial_date_year = dt.datetime(current_year, 1, 1)
+
+initial_date_month = dt.datetime(current_year, actual_date.month, 1)
+
+diferencia_year = actual_date - initial_date_year
+
+diferencia_month =actual_date - initial_date_month
+
+print("Un trabajador a tiempo completo a dia de hoy debería tener acumuladas tantas horas ", int(diferencia_year.days+1) / 365 * 1200)
+
+print("Un trabajador a tiempo completo a dia de hoy debería haber trabajado estas horas este mes:", int(diferencia_month.days+1)/30*100)
+
+print(data_frame_a_exportar['ID'].values)

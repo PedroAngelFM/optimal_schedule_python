@@ -39,14 +39,17 @@ class Worker:
     def __str__(self):
         return """El trabajador tiene un ID"""
 
+    def check_worker_data(self):
+        # This method checks the conditions needed for creating a worker.
+        pass
     def generate_worker_as_dictionary(self):
         worker_as_dictionary = {'ID': self.ID, 'contract': self.contract,
                                 'days_warking_in_a_row': self.days_working_in_a_row,
                                 'hours_worked': self.hours_worked, 'yearly_hours': self.yearly_hours}
-        return dict
+        return worker_as_dictionary
 
 class Tipo_turno:
-    def __init__(self, name, hours, night, weekend):
+    def __init__(self, name, hours, night, weekend, workers):
         self.name = name
 
         self.hours = hours
@@ -54,3 +57,5 @@ class Tipo_turno:
         self.night = night
 
         self.weekend = weekend
+
+        self.workers = workers
