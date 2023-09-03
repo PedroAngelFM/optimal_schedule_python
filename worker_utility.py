@@ -85,12 +85,12 @@ def add_worker_to_dataframe(data_frame):
   data_frame.loc[len(data_frame)] = new_worker_dict
 
 
-for i in range(100):
-  add_worker_to_dataframe(data_frame_a_exportar)
+###for i in range(100):
+  #add_worker_to_dataframe(data_frame_a_exportar)
 
-print(data_frame_a_exportar.head(len(data_frame_a_exportar)))
+#print(data_frame_a_exportar.head(len(data_frame_a_exportar)))
 
-data_frame_a_exportar.to_csv("base_datos.csv", index=False)
+#data_frame_a_exportar.to_csv("base_datos.csv", index=False)
 
 #prueba
 data_frame_a_exportar = pd.read_csv("base_datos.csv")
@@ -113,4 +113,5 @@ print("Un trabajador a tiempo completo a dia de hoy debería tener acumuladas ta
 
 print("Un trabajador a tiempo completo a dia de hoy debería haber trabajado estas horas este mes:", int(diferencia_month.days+1)/30*100)
 
-print(data_frame_a_exportar['ID'].values)
+is_id_in_data_frame = str(7887) in data_frame_a_exportar['ID'].values
+print(is_id_in_data_frame)

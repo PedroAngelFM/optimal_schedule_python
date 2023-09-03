@@ -6,13 +6,12 @@ m = md.Model()
 class Control:
     def __init__(self):
         pass
-    def inicio_programa(self, user, password):
+    def inicio_programa(self):
         m.inicio_programa()
         pass
-        #return m.inicio_programa(user, password)
 
     def id_check(self, id_nuevo_trabajador):
-        m.id_check(id_nuevo_trabajador)
+        return m.id_check(id_nuevo_trabajador)
         pass
 
     def create_worker(self, id_nuevo_trabajador, tipo_contrato, weekend_counter, days_working_in_a_row,

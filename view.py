@@ -10,15 +10,15 @@ class View:
         pass
 
     def inicio_programa(self):
-        print("Se iniciará el programa")
+        #print("Se iniciará el programa")
 
-        print("Introduzca su usuario y contraseña para la base de datos")
+        #print("Introduzca su usuario y contraseña para la base de datos")
 
-        user = input("Usuario: ")
+        #user = input("Usuario: ")
 
         #password = getpass.getpass("Contraseña: ")
 
-        c.inicio_programa(user,"password")
+        c.inicio_programa()
 
     def menu_principal(self):
         print("============== Menú Principal ==============")
@@ -94,10 +94,12 @@ class View:
 
     def crear_trabajador(self):
         print("Creación de nuevo trabajador")
-        id_nuevo_trabajador = int(input("Introduzca el numero de identificación de su nuevo trabajador"))
-        while(c.id_check(id_nuevo_trabajador)):
+        id_nuevo_trabajador = int(input("Introduzca el numero de identificación de su nuevo trabajador: "))
+        condition = c.id_check(id_nuevo_trabajador)
+        while(condition):
             print("El id de su trabajador ya existe, vuelva a introducir")
             id_nuevo_trabajador = int(input("Introduzca la identificación de nuevo: "))
+            condition = c.id_check(id_nuevo_trabajador)
 
         print("Ahora debe elegir entre uno de los siguientes tipos de contrato que tenga el trabajador:")
 
