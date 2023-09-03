@@ -20,4 +20,10 @@ class Control:
                       hours_worked_in_a_year)
         pass
 
+    def export_csv(self):
+        pass
+
+    def exit_program(self):
+        pass
+
 

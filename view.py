@@ -25,9 +25,9 @@ class View:
         print(""" 1. Menu Turnos.
                \n 2. Menú Trabajadores.
                \n 3. Menú Exportar/Importar. 
-               \n 4. Salir""")
+               \n 4. Salir del programa""")
         option = int(input("\n Introduzca su opción: "))
-        options = [1, 2, 3]
+        options = [1, 2, 3, 4]
         while option not in options:
             print("Opción errónea, vuelva a probar.")
             option = int(input("Introduzca su opción: "))
@@ -40,6 +40,9 @@ class View:
         elif option == 3:
             print("Elegiste la opción 3.")
             self.eliminar_turno()
+        elif option == 4:
+            print("Se saldrá del programa")
+            self.exit_program()
 
     def menu_manejo_turnos(self):
         print("============== Menú Turnos ==============")
@@ -47,7 +50,7 @@ class View:
                \n 2. Modificar un turno existente.
                \n 3. Eliminar un turno existente. \n""")
         option = int(input("\n Introduzca su opción: "))
-        options = [1, 2, 3]
+        options = [1, 2, 3, 4]
         while option not in options:
             print("Opción errónea, vuelva a probar.")
             option = int(input("Introduzca su opción: "))
@@ -114,13 +117,13 @@ class View:
             option = int(input("Introduzca su opción: "))
         if option == 1:
             print("Elegiste la opción 1.")
-            tipo_contrato= 1.
+            tipo_contrato = 1.
         elif option == 2:
             print("Elegiste la opción 2.")
-            tipo_contrato= 0.75
+            tipo_contrato = 0.75
         elif option == 3:
             print("Elegiste la opción 3.")
-            tipo_contrato= 0.5
+            tipo_contrato = 0.5
         elif option == 4 :
             print("Elegiste la opción 4.")
             tipo_contrato = 0.25
@@ -150,3 +153,16 @@ class View:
 
     def eliminar_trabajador(self):
         pass
+
+    def exit_program(self):
+        answer = input("¿ Desea guardar los cambios en los respectivos excel? S/N: ")
+        while answer.lower() not in ['s', 'n']:
+            answer = input(" Respuesta incorrecta, vuelva a introducir su respuesta, S/N: ")
+        if answer.lower() == 's':
+            print(" Se exportarán los csv de acuerdo a su respuesta")
+            c.export_csv()
+            c.exit_program()
+        elif answer.lower() == 'n':
+            print( "No se exportarán los csv de acuerdo a su respuesta, lo que implicará la perdida de los datos")
+            c.exit_program()
+        print("Gracias por usar el programa. :)")
